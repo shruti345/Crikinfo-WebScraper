@@ -2,7 +2,7 @@ let cheerio = require("cheerio");
 let fs = require("fs");
 let request = require("request");
 let matchFile = require("./match.js");
-// let url = "https://www.espncricinfo.com/scores/series/8039/season/2015/icc-cricket-world-cup?view=results";
+let url = "https://www.espncricinfo.com/scores/series/8039/season/2015/icc-cricket-world-cup?view=results";
 function allMatchHandler(url) {
 
     request(url, cb);
@@ -29,7 +29,6 @@ function parseHtml(body) {
         let link = $(scorecardA).attr("href");
         let cLInk = "https://www.espncricinfo.com/" + link;
         matchFile.expfn(cLInk);
-
     }
 }
 module.exports.allMatchHandler = allMatchHandler;
